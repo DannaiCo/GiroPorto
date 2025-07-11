@@ -5,12 +5,12 @@
   <title>Clasificación Giro d’Italia</title>
   <meta http-equiv="refresh" content="180">
   <style>
-    body, html {
+    html, body {
       margin: 0;
       padding: 0;
-      overflow: hidden;
-      height: 630px;
       width: 2114px;
+      height: 630px;
+      overflow: hidden;
       font-family: 'Open Sans', sans-serif;
       position: relative;
     }
@@ -29,27 +29,38 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      align-items: center;
       height: 100%;
       width: 100%;
+      padding: 60px 120px;
+      box-sizing: border-box;
       color: #ffffff;
       font-style: italic;
       font-weight: bold;
       text-transform: uppercase;
-      gap: 40px;
+      gap: 60px;
     }
 
     .fila {
       display: flex;
-      justify-content: space-between;
-      align-items: center;
-      width: 85%;
-      font-size: 50px;
+      font-size: 55px;
+      width: 100%;
     }
 
-    .fila div {
-      flex: 1;
+    .col-nombre {
+      width: 35%;
+      text-align: left;
+      padding-left: 20px;
+    }
+
+    .col-equipo {
+      width: 35%;
       text-align: center;
+    }
+
+    .col-tiempo {
+      width: 30%;
+      text-align: right;
+      padding-right: 20px;
     }
   </style>
 </head>
@@ -61,19 +72,19 @@
 
   <div class="tabla">
     <div class="fila">
-      <div id="nombre1">---</div>
-      <div id="equipo1">---</div>
-      <div id="tiempo1">---</div>
+      <div class="col-nombre" id="nombre1">---</div>
+      <div class="col-equipo" id="equipo1">---</div>
+      <div class="col-tiempo" id="tiempo1">---</div>
     </div>
     <div class="fila">
-      <div id="nombre2">---</div>
-      <div id="equipo2">---</div>
-      <div id="tiempo2">---</div>
+      <div class="col-nombre" id="nombre2">---</div>
+      <div class="col-equipo" id="equipo2">---</div>
+      <div class="col-tiempo" id="tiempo2">---</div>
     </div>
     <div class="fila">
-      <div id="nombre3">---</div>
-      <div id="equipo3">---</div>
-      <div id="tiempo3">---</div>
+      <div class="col-nombre" id="nombre3">---</div>
+      <div class="col-equipo" id="equipo3">---</div>
+      <div class="col-tiempo" id="tiempo3">---</div>
     </div>
   </div>
 
@@ -91,12 +102,12 @@
           document.getElementById(`tiempo${i}`).textContent = doc.getElementById(`tiempo${i}`).textContent;
         }
       } catch (err) {
-        console.error("Error cargando los datos:", err);
+        console.error("Cargando los datos:", err);
       }
     }
 
     cargarDatos();
-    setInterval(cargarDatos, 30000);
+    setInterval(cargarDatos, 300000); // cada 30 segundos
   </script>
 </body>
 </html>
