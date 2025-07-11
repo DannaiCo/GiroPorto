@@ -2,17 +2,25 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Clasificación Giro d’Italia</title>
+  <title>Tour de Francia - Clasificación</title>
   <meta http-equiv="refresh" content="180">
   <style>
     html, body {
       margin: 0;
-      padding: 0;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: black;
+      font-family: 'Open Sans', sans-serif;
+    }
+
+    .contenedor {
+      position: absolute;
       width: 2114px;
       height: 630px;
-      overflow: hidden;
-      font-family: 'Open Sans', sans-serif;
-      position: relative;
     }
 
     video#fondo {
@@ -26,18 +34,19 @@
     }
 
     .tabla {
+      position: absolute;
+      width: 100%;
+      height: 100%;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      height: 100%;
-      width: 100%;
-      padding: 60px 120px;
-      box-sizing: border-box;
+      gap: 55px;
       color: #ffffff;
       font-style: italic;
       font-weight: bold;
       text-transform: uppercase;
-      gap: 60px;
+      padding: 60px 120px;
+      box-sizing: border-box;
     }
 
     .fila {
@@ -49,7 +58,6 @@
     .col-nombre {
       width: 35%;
       text-align: left;
-      padding-left: 20px;
     }
 
     .col-equipo {
@@ -60,31 +68,32 @@
     .col-tiempo {
       width: 30%;
       text-align: right;
-      padding-right: 20px;
     }
   </style>
 </head>
 <body>
-  <video autoplay muted loop id="fondo">
-    <source src="fondo.mp4" type="video/mp4">
-    Tu navegador no soporta el video.
-  </video>
+  <div class="contenedor">
+    <video autoplay muted loop id="fondo">
+      <source src="fondo.mp4" type="video/mp4">
+      Tu navegador no soporta el video.
+    </video>
 
-  <div class="tabla">
-    <div class="fila">
-      <div class="col-nombre" id="nombre1">---</div>
-      <div class="col-equipo" id="equipo1">---</div>
-      <div class="col-tiempo" id="tiempo1">---</div>
-    </div>
-    <div class="fila">
-      <div class="col-nombre" id="nombre2">---</div>
-      <div class="col-equipo" id="equipo2">---</div>
-      <div class="col-tiempo" id="tiempo2">---</div>
-    </div>
-    <div class="fila">
-      <div class="col-nombre" id="nombre3">---</div>
-      <div class="col-equipo" id="equipo3">---</div>
-      <div class="col-tiempo" id="tiempo3">---</div>
+    <div class="tabla">
+      <div class="fila">
+        <div class="col-nombre" id="nombre1">---</div>
+        <div class="col-equipo" id="equipo1">---</div>
+        <div class="col-tiempo" id="tiempo1">---</div>
+      </div>
+      <div class="fila">
+        <div class="col-nombre" id="nombre2">---</div>
+        <div class="col-equipo" id="equipo2">---</div>
+        <div class="col-tiempo" id="tiempo2">---</div>
+      </div>
+      <div class="fila">
+        <div class="col-nombre" id="nombre3">---</div>
+        <div class="col-equipo" id="equipo3">---</div>
+        <div class="col-tiempo" id="tiempo3">---</div>
+      </div>
     </div>
   </div>
 
@@ -102,12 +111,13 @@
           document.getElementById(`tiempo${i}`).textContent = doc.getElementById(`tiempo${i}`).textContent;
         }
       } catch (err) {
-        console.error("Cargando los datos:", err);
+        console.error("Error cargando los datos:", err);
       }
     }
 
     cargarDatos();
-    setInterval(cargarDatos, 300000); // cada 30 segundos
+    setInterval(cargarDatos, 30000); // cada 30 segundos
   </script>
 </body>
 </html>
+
