@@ -17,8 +17,8 @@
 
     .contenedor {
       position: relative;
-      width: 100vw;   /* ✅ se adapta al ancho real */
-      height: 100vh;  /* ✅ se adapta al alto real */
+      width: 100vw;   
+      height: 100vh;  
     }
 
     video#fondo {
@@ -27,7 +27,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      object-fit: cover;  /* ✅ mantiene proporción llenando */
+      object-fit: fill;  /* ✅ ahora el video se deforma pero siempre ocupa todo */
       z-index: 0;
     }
 
@@ -35,24 +35,24 @@
       position: absolute;
       top: 0;
       left: 0;
-      width: 100%;   /* ✅ ya no se pasa del tamaño */
+      width: 100%;   
       height: 100%;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      gap: 8vh;  /* ✅ espacio entre filas proporcional */
+      gap: 8vh;  
       color: #ffffff;
       font-style: italic;
       font-weight: bold;
       text-transform: uppercase;
-      padding: 0 8vw;  /* ✅ margen lateral relativo */
+      padding: 0 8vw;  
       box-sizing: border-box;
       z-index: 1;
     }
 
     .fila {
       display: flex;
-      font-size: 6vh; /* ✅ texto proporcional a la altura */
+      font-size: 6vh; 
       width: 100%;
     }
 
