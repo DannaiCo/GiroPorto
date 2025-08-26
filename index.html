@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Tour de Francia - Clasificación</title>
   <meta http-equiv="refresh" content="180">
+
   <style>
     html, body {
       margin: 0;
@@ -27,49 +28,37 @@
       left: 0;
       width: 100%;
       height: 100%;
-      object-fit: fill;  /* ✅ ahora el video se deforma pero siempre ocupa todo */
+      object-fit: cover;  /* ✅ ocupa toda la pantalla sin deformarse */
       z-index: 0;
     }
 
+    /* Texto sobre posiciones específicas */
     .tabla {
       position: absolute;
       top: 0;
       left: 0;
-      width: 120%;   
-      height: 120%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      gap: 15vh;  
+      width: 100%;   
+      height: 100%;
       color: #ffffff;
       font-style: italic;
       font-weight: bold;
       text-transform: uppercase;
-      padding: 0 8vw;  
-      box-sizing: border-box;
+      font-size: 6vh;
       z-index: 1;
     }
 
-    .fila {
-      display: flex;
-      font-size: 6vh; 
-      width: 100%;
-    }
+    /* 🔴 Ajusta coordenadas a tu diseño */
+    #nombre1 { position: absolute; top: 25%; left: 15%; }
+    #equipo1 { position: absolute; top: 25%; left: 50%; }
+    #tiempo1 { position: absolute; top: 25%; right: 10%; }
 
-    .col-nombre {
-      width: 35%;
-      text-align: left;
-    }
+    #nombre2 { position: absolute; top: 45%; left: 15%; }
+    #equipo2 { position: absolute; top: 45%; left: 50%; }
+    #tiempo2 { position: absolute; top: 45%; right: 10%; }
 
-    .col-equipo {
-      width: 35%;
-      text-align: center;
-    }
-
-    .col-tiempo {
-      width: 5%;
-      text-align: right;
-    }
+    #nombre3 { position: absolute; top: 65%; left: 15%; }
+    #equipo3 { position: absolute; top: 65%; left: 50%; }
+    #tiempo3 { position: absolute; top: 65%; right: 10%; }
   </style>
 </head>
 <body>
@@ -80,21 +69,17 @@
     </video>
 
     <div class="tabla">
-      <div class="fila">
-        <div class="col-nombre" id="nombre1">---</div>
-        <div class="col-equipo" id="equipo1">---</div>
-        <div class="col-tiempo" id="tiempo1">---</div>
-      </div>
-      <div class="fila">
-        <div class="col-nombre" id="nombre2">---</div>
-        <div class="col-equipo" id="equipo2">---</div>
-        <div class="col-tiempo" id="tiempo2">---</div>
-      </div>
-      <div class="fila">
-        <div class="col-nombre" id="nombre3">---</div>
-        <div class="col-equipo" id="equipo3">---</div>
-        <div class="col-tiempo" id="tiempo3">---</div>
-      </div>
+      <div id="nombre1">---</div>
+      <div id="equipo1">---</div>
+      <div id="tiempo1">---</div>
+
+      <div id="nombre2">---</div>
+      <div id="equipo2">---</div>
+      <div id="tiempo2">---</div>
+
+      <div id="nombre3">---</div>
+      <div id="equipo3">---</div>
+      <div id="tiempo3">---</div>
     </div>
   </div>
 
@@ -117,10 +102,12 @@
     }
 
     cargarDatos();
-    setInterval(cargarDatos, 30000); // cada 30 segundos
+    setInterval(cargarDatos, 300000); // cada 30 segundos
   </script>
 </body>
 </html>
+
+
 
 
 
